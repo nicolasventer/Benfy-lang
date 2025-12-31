@@ -1,0 +1,39 @@
+{
+	"name": "benfy-lang",
+	"displayName": "Benfy Lang",
+	"description": "Syntax highlighting for Benfy Lang",
+	"version": "0.0.1",
+	"publisher": "NVE",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/nicolasventer/benfy-lang.git"
+	},
+	"engines": {
+		"vscode": "^1.99.3"
+	},
+	"categories": [
+		"Programming Languages"
+	],
+	"contributes": {
+		"languages": [
+			{
+				"id": "bf",
+				"aliases": [
+					"Benfy",
+					"bf"
+				],
+				"extensions": [
+					".bf"
+				],
+				"configuration": "./language-configuration.json"
+			}
+		],
+		"grammars": [
+			{
+				"language": "bf",
+				"scopeName": "source.bf",
+				"path": "./syntaxes/bf.tmLanguage.json"
+			}
+		]
+	}
+}

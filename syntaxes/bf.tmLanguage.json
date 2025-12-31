@@ -1,0 +1,51 @@
+{
+	"$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
+	"name": "Benfy",
+	"patterns": [
+		{
+			"include": "#regex"
+		},
+		{
+			"include": "#rule_name"
+		},
+		{
+			"include": "#symbol"
+		},
+		{
+			"include": "#comment"
+		},
+		{
+			"include": "#keywords"
+		},
+		{
+			"include": "#rule_ref"
+		}
+	],
+	"repository": {
+		"regex": {
+			"name": "string.regexp",
+			"match": "\\/(\\\\/|[^/])*\\/"
+		},
+		"rule_name": {
+			"name": "entity.name.type",
+			"match": "^[a-z][a-z_]*"
+		},
+		"symbol": {
+			"name": "keyword.operator.new",
+			"match": ">>|\\?|\\+|\\*|\\|"
+		},
+		"comment": {
+			"name": "comment.line",
+			"match": "#.*"
+		},
+		"keywords": {
+			"name": "keyword.control.less",
+			"match": "\\b(include|as)\\b"
+		},
+		"rule_ref": {
+			"name": "entity.name.function",
+			"match": "[a-z][a-z_]*"
+		}
+	},
+	"scopeName": "source.bf"
+}
