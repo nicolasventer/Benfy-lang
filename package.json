@@ -2,11 +2,14 @@
 	"name": "benfy-lang",
 	"displayName": "Benfy Lang",
 	"description": "Syntax highlighting for Benfy Lang",
-	"version": "0.0.1",
+	"version": "1.0.0",
 	"publisher": "NVE",
 	"repository": {
 		"type": "git",
 		"url": "https://github.com/nicolasventer/benfy-lang.git"
+	},
+	"scripts": {
+		"compile": "vsce package"
 	},
 	"engines": {
 		"vscode": "^1.99.3"
