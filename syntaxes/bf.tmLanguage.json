@@ -3,6 +3,12 @@
 	"name": "Benfy",
 	"patterns": [
 		{
+			"include": "#multiline_comment"
+		},
+		{
+			"include": "#spacing_policy"
+		},
+		{
 			"include": "#regex"
 		},
 		{
@@ -12,39 +18,46 @@
 			"include": "#symbol"
 		},
 		{
-			"include": "#comment"
-		},
-		{
-			"include": "#keywords"
+			"include": "#singleline_comment"
 		},
 		{
 			"include": "#rule_ref"
 		}
 	],
 	"repository": {
+		"spacing_policy": {
+			"name": "keyword.control.less",
+			"match": "\"strict\"|\"loose\""
+		},
 		"regex": {
 			"name": "string.regexp",
-			"match": "\\/(\\\\/|[^/])*\\/"
+			"match": "\\/(\\\\/|[^/])*\\/([slmi]*)",
+			"captures": {
+				"2": {
+					"name": "keyword.control.less"
+				}
+			}
 		},
 		"rule_name": {
 			"name": "entity.name.type",
-			"match": "^[a-z][a-z_]*"
+			"match": "^[a-zA-Z][a-zA-Z0-9_]*"
 		},
 		"symbol": {
 			"name": "keyword.operator.new",
-			"match": ">>|\\?|\\+|\\*|\\|"
+			"match": ":|>>|\\?|\\+|\\*|!|\\|"
 		},
-		"comment": {
+		"multiline_comment": {
+			"name": "comment.block",
+			"begin": "##",
+			"end": "##"
+		},
+		"singleline_comment": {
 			"name": "comment.line",
 			"match": "#.*"
 		},
-		"keywords": {
-			"name": "keyword.control.less",
-			"match": "\\b(include|as)\\b"
-		},
 		"rule_ref": {
 			"name": "entity.name.function",
-			"match": "[a-z][a-z_]*"
+			"match": "[a-zA-Z][a-zA-Z0-9_]*"
 		}
 	},
 	"scopeName": "source.bf"

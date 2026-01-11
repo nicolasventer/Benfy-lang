@@ -13,11 +13,15 @@ A VS Code extension that provides syntax highlighting and language support for B
 
 The extension provides syntax highlighting for:
 
-- **Rule Names**: Variables starting with lowercase letters (e.g., `rule_name`)
-- **Rule References**: Function-like references (e.g., `rule_ref`)
-- **Regex Patterns**: Regular expressions enclosed in forward slashes (e.g., `/pattern/`)
-- **Symbols**: Control operators (`>>`, `?`, `+`, `*`, `|`)
-- **Comments**: Line comments starting with `#`
+- **Rule Names**: Identifiers at the start of a line (e.g., `rule_name`, `RuleName`)
+- **Rule References**: Function-like references anywhere in the code (e.g., `rule_ref`)
+- **Regex Patterns**: Regular expressions enclosed in forward slashes with optional flags (e.g., `/pattern/`, `/pattern/s`, `/pattern/slmi`)
+  - Supported flags: `s`, `l`, `m`, `i`
+- **Symbols**: Control operators (`:`, `>>`, `?`, `+`, `*`, `!`, `|`)
+- **Spacing Policy**: Keywords `"strict"` or `"loose"`
+- **Comments**: 
+  - Single-line comments starting with `#`
+  - Multi-line comments enclosed in `##` ... `##`
 
 ## Installation
 
@@ -43,15 +47,20 @@ The extension provides syntax highlighting for:
 The extension includes:
 - Auto-closing brackets: `{}`, `[]`, `()`
 - Auto-closing quotes: `"`, `'`
-- Comment support: `#` for line comments, `/* */` for block comments
+- Comment support: `#` for line comments, `##` for block comments
 
 ## Example Benfy Lang File
 
 ```bf
-# This is a comment
+# This is a single-line comment
+## This is a
+   multi-line comment ##
+
 rule_name >> /pattern/ | another_rule
+RuleName : /pattern_with_flags/slmi
 rule_ref ? /regex_pattern/
-symbol_test + /test/ * /multiple/
+symbol_test + /test/ * /multiple/ ! /negation/
+spacing "strict"
 ```
 
 ## Development
