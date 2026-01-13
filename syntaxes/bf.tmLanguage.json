@@ -31,7 +31,7 @@
 		},
 		"regex": {
 			"name": "string.regexp",
-			"match": "\\/(\\\\/|[^/])*\\/([slmi]*)",
+			"match": "\\/(\\\\.|[^/])*\\/([slmi]*)",
 			"captures": {
 				"2": {
 					"name": "keyword.control.less"
